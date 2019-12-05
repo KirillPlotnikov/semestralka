@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'settings/index'
 
-  resources :tags
-  resources :categories
+  scope '/settings' do
+    resources :tags, :categories
+  end
+  
   get '/account', to: 'account#index'
 
 
