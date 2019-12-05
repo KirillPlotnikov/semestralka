@@ -1,0 +1,25 @@
+<% content_for :head_content do  %>
+  <%= stylesheet_link_tag 'tasks/_form.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'tasks/_form.js',  'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= simple_form_for(@task) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :title, hint: 'Atleast 2 characters '%>
+    <%= f.input :note %>
+    <div class="form-group boolean optional deadline_present">
+    <input id="custom_deadline_at" type="checkbox" name="custom_deadline_at"><label>Has a deadline</label>
+    </div>
+    <%= f.input :deadline_at, html5: true %>
+    <%= f.input :is_done %>
+    <%= f.association :category %>
+    <%= f.association :tags, as: :check_boxes%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

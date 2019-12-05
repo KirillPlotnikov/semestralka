@@ -1,0 +1,61 @@
+
+@import "bootswatch/sandstone/variables";
+@import "bootstrap";
+@import "bootswatch/sandstone/bootswatch";
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;             /* establish flex container */
+  align-items: center;       /* center ul container vertically */
+  justify-content: center;   /* center ul container horizontally (optional) */
+}
+
+.nav-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-btn{
+  margin-right: 10px;
+}
+
+.navbar{
+  width: 100%;
+}
+
+#notice{
+  display: none;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  margin: 0px auto;
+}
+
+.nav-item{
+  margin-left: 20px;
+  text-align: center;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 991px) {
+  .navbar-btn{
+    margin-right: 0px;
+    margin-top: 10px;
+  }
+
+  .nav-item{
+    margin-left: 0px;
+  }
+}

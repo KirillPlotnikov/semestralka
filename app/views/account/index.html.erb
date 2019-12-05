@@ -1,0 +1,31 @@
+<% content_for :title do  %>
+  My Account
+<% end %>
+
+<% content_for :head_content do  %>
+  <%= stylesheet_link_tag 'account/account_index.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<h1 align="center">My Account</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-xs-auto border bg-light user_info">
+      <div class="row justify-content-md-start">
+        <label>Username:</label>
+        <p><%= current_user.username %></p>
+      </div>
+      <div class="row">
+        <label>Email:</label>
+        <p><%= current_user.email %></p>
+      </div>
+      <div class="row">
+      <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
+        <%= link_to "Edit account", edit_user_registration_path %>
+        <%= link_to "Delete account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      </div>
+    </div>
+
+  </div>
+</div>
