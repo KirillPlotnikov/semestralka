@@ -19,8 +19,7 @@
     <div class="collapse navbar-collapse" id="navbar_content">
       <ul class="navbar-nav">
         <li class="nav-item <%= controller_name == 'tasks' ? 'active' : '' %>"><%= link_to "Tasks", tasks_path, class: 'nav-link' %></li>
-        <li class="nav-item <%= controller_name == 'categories' ? 'active' : '' %>"><%= link_to "Categories", categories_path, class: 'nav-link' %></li>
-        <li class="nav-item <%= controller_name == 'tags' ? 'active' : '' %>"><%= link_to "Tags", tags_path, class: 'nav-link' %></li>
+        <li class="nav-item <%= controller_name == 'settings' || controller_name == 'settings_categories' || controller_name == 'settings_tags' ? 'active' : '' %>"><%= link_to "Settings", settings_index_path, class: 'nav-link' %></li>
       </ul>
     <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
