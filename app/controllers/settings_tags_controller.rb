@@ -6,6 +6,7 @@ class SettingsTagsController < ApplicationController
   # GET /tags.json
   def index
     @tags = current_user.tags
+    console
   end
 
   # GET /tags/1

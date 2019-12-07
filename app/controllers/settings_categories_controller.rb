@@ -6,6 +6,7 @@ class SettingsCategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = current_user.categories
+    console
   end
 
   # GET /categories/1

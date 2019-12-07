@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191204034830) do
+ActiveRecord::Schema.define(version: 20191207213449) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20191204034830) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tasks_count", default: 0, null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20191204034830) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tasks_count", default: 0, null: false
     t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
