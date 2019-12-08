@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories_and_tags, only: [:index, :completed, :pending, :by_category, :by_tags]
 
   # GET /tasks
   # GET /tasks.json
@@ -11,7 +12,6 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
     end
-
   end
 
   # GET /tasks/1
@@ -126,4 +126,9 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:deadline_at, :title, :note, :is_done, :category_id, :tag_ids => [])
     end
+
+  def set_categories_and_tags
+    @categories = current_user.categories
+    @tags = current_user.tags
+  end
 end
