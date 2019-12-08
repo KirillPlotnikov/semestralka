@@ -85,6 +85,37 @@ class TasksController < ApplicationController
     render 'index'
   end
 
+  def by_category
+    if params[:group] == '1'
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).joins(:category).where(category: params[:category]).group_by{|t| t.category.title}.map{|k,v| [k, v.sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}]}.to_h
+    else
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).where(category: params[:category]).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    end
+    render 'index'
+    console
+  end
+
+  def by_tags
+    if params[:category] == nil
+      tags_ids = params[:tags_ids].split("+")
+      if params[:group] == '1'
+        @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).joins(:category, :tag_associations).where(tag_associations: {tag_id: tags_ids}).group_by{|t| t.category.title}.map{|k,v| [k, v.sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}]}.to_h
+      else
+        @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).joins(:tag_associations).where(tag_associations: {tag_id: tags_ids}).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+      end
+    else
+      category = params[:category]
+      tags_ids = params[:tags_ids].split("+")
+      if params[:group] == '1'
+        @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).joins(:category, :tag_associations).where(category: category).where(tag_associations: {tag_id: tags_ids}).group_by{|t| t.category.title}.map{|k,v| [k, v.sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}]}.to_h
+      else
+        @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).joins(:tag_associations).where(category: category).where(tag_associations: {tag_id: tags_ids}).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+      end
+
+    end
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task

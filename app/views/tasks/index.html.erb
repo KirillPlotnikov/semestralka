@@ -4,6 +4,7 @@
 
 <% content_for :head_content do  %>
   <%= stylesheet_link_tag 'tasks/index.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'tasks/index.js', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
 <p id="notice"><%= notice %></p>
@@ -15,6 +16,11 @@
   <%= link_to 'Pending Tasks', pending_tasks_path %>
   <%= link_to 'Completed Tasks', completed_tasks_path %>
   <%= link_to 'Group by category', request.path + "?" + {:group => '1'}.to_query  %>
+  <%= link_to ("Filter <i class='down'></i>").html_safe %>
+</div>
+
+<div class="filtering-div">
+
 </div>
 
   <% if @tasks.is_a?(Hash) && @tasks != nil %>

@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     collection do
       get 'completed'
       get 'pending'
+      get 'search/:keyword', action: 'search', as: :tasks_search
+      get 'by-category/:category', action: 'by_category', as: :filter_by_category
+      get 'by-tags/:tags_ids', action: 'by_tags', as: :filter_by_tags
+      get 'by-category/:category/by-tags/:tags_ids', action: 'by_tags', as: :filter_by_category_and_tags
     end
   end
 
