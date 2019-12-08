@@ -7,8 +7,7 @@ class TasksController < ApplicationController
   def index
     # @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}
     if params[:group] == '1'
-      # @tasks = current_user.tasks.includes(:category).joins(:category).group_by{|t| t.category}
-      @tasks = current_user.tasks.includes(:category).joins(:category).group_by{|t| t.category}
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).joins(:category).group_by{|t| t.category.title}.map{|k,v| [k, v.sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}]}.to_h
     else
       @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
     end
@@ -68,12 +67,21 @@ class TasksController < ApplicationController
   end
 
   def completed
-    @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).completed.order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    if params[:group] == '1'
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).completed.joins(:category).group_by{|t| t.category.title}.map{|k,v| [k, v.sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}]}.to_h
+    else
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).completed.order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    end
     render 'index'
+
   end
 
   def pending
-    @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).pending.order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    if params[:group] == '1'
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).pending.joins(:category).group_by{|t| t.category.title}.map{|k,v| [k, v.sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}]}.to_h
+    else
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).pending.order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    end
     render 'index'
   end
 

@@ -10,11 +10,25 @@
 
 <h1 align="center">Tasks</h1>
 
-<div class="container-tasks">
-  <%= render @tasks %>
-
+<div class="tasks-menu">
+  <%= link_to 'New Task', new_task_path %>
+  <%= link_to 'Pending Tasks', pending_tasks_path %>
+  <%= link_to 'Completed Tasks', completed_tasks_path %>
+  <%= link_to 'Group by category', request.path + "?" + {:group => '1'}.to_query  %>
 </div>
 
-<br>
+  <% if @tasks.is_a?(Hash) && @tasks != nil %>
+    <% @tasks.each do |k,v| %>
+    <h3 align="center"><%= k %></h3>
+    <div class="container-tasks">
+      <%= render v %>
+    </div>
+    <% end %>
+  <% else %>
+  <div class="container-tasks">
+    <%= render @tasks %>
+  </div>
+  <% end %>
 
-<%= link_to 'New Task', new_task_path %>
+
+

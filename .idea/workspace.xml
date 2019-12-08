@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1801c785-3706-4ae3-a56f-5022acf849c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/css/tasks/_form.scss.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/css/tasks/_form.scss.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/css/tasks/show.scss.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/css/tasks/show.scss.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/tasks_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tasks/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tasks/_task.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/_task.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tasks/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tasks/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/tasks/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/tasks/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/tasks/index.html.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -23,6 +17,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/semestralka@Development__semestralka.rcov" NAME="Development: semestralka Coverage Results" MODIFIED="1575784196057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="semestralka" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -52,7 +49,7 @@
           <entry key="Gemfile" value="7" />
           <entry key="css" value="1" />
           <entry key="env" value="2" />
-          <entry key="erb" value="115" />
+          <entry key="erb" value="118" />
           <entry key="gitignore" value="1" />
           <entry key="jbuilder" value="2" />
           <entry key="js" value="3" />
@@ -65,7 +62,7 @@
           <entry key="CSS" value="1" />
           <entry key="JavaScript" value="3" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="RHTML" value="115" />
+          <entry key="RHTML" value="118" />
           <entry key="Ruby" value="119" />
           <entry key="SCSS" value="18" />
         </counts>
@@ -74,9 +71,9 @@
         <counts>
           <entry key="Gemfile" value="18" />
           <entry key="env" value="8" />
-          <entry key="erb" value="7792" />
+          <entry key="erb" value="8436" />
           <entry key="js" value="326" />
-          <entry key="rb" value="2943" />
+          <entry key="rb" value="3145" />
           <entry key="scss" value="470" />
         </counts>
       </usages-collector>
@@ -84,8 +81,8 @@
         <counts>
           <entry key="JavaScript" value="326" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="RHTML" value="7792" />
-          <entry key="Ruby" value="2961" />
+          <entry key="RHTML" value="8436" />
+          <entry key="Ruby" value="3163" />
           <entry key="SCSS" value="470" />
         </counts>
       </usages-collector>
@@ -96,8 +93,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/tasks_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="95" selection-start-line="10" selection-start-column="95" selection-end-line="10" selection-end-column="95" />
+            <state relative-caret-position="452">
+              <caret line="82" column="87" selection-start-line="82" selection-start-column="87" selection-end-line="82" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -156,8 +171,6 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/models/task.rb" />
         <option value="$PROJECT_DIR$/config/initializers/assets.rb" />
-        <option value="$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb" />
-        <option value="$PROJECT_DIR$/app/views/tasks/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/_task.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/css/tasks/show.scss.erb" />
@@ -165,6 +178,8 @@
         <option value="$PROJECT_DIR$/app/views/tasks/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/css/tasks/_form.scss.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb" />
+        <option value="$PROJECT_DIR$/app/views/tasks/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/tasks_controller.rb" />
       </list>
     </option>
@@ -174,6 +189,13 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -215,27 +237,7 @@
               <item name="semestralka" type="b2602c69:ProjectViewProjectNode" />
               <item name="semestralka" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="semestralka" type="b2602c69:ProjectViewProjectNode" />
-              <item name="semestralka" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="semestralka" type="b2602c69:ProjectViewProjectNode" />
-              <item name="semestralka" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="semestralka" type="b2602c69:ProjectViewProjectNode" />
-              <item name="semestralka" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -373,12 +375,12 @@
       <option name="presentableId" value="Default" />
       <updated>1574997016062</updated>
       <workItem from="1574997017332" duration="1501000" />
-      <workItem from="1574998542144" duration="89548000" />
+      <workItem from="1574998542144" duration="94912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91049000" />
+    <option name="totallyTimeSpent" value="96413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -390,7 +392,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39914772" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -624,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -680,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="80" selection-start-line="80" selection-end-line="87" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/tasks/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -708,10 +696,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/css/tasks/index.scss.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tasks/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tasks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="95" selection-start-line="10" selection-start-column="95" selection-end-line="10" selection-end-column="95" />
+        <state relative-caret-position="452">
+          <caret line="82" column="87" selection-start-line="82" selection-start-column="87" selection-end-line="82" selection-end-column="87" />
         </state>
       </provider>
     </entry>
