@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   def index
     # @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}
     if params[:group] == '1'
+      # @tasks = current_user.tasks.includes(:category).joins(:category).group_by{|t| t.category}
       @tasks = current_user.tasks.includes(:category).joins(:category).group_by{|t| t.category}
     else
       @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')

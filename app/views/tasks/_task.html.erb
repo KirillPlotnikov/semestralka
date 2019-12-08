@@ -9,7 +9,7 @@
     </div>
   <% end %>
   <p><strong>Title:</strong> <span><%= task.title %></span></p>
-  <p><strong>Deadline at:</strong> <span><%= task.deadline_at != nil ? task.deadline_at : "No deadline" %></span></p>
+  <p><strong>Deadline at:</strong> <span><%= task.deadline_at? ? task.deadline_at : "No deadline" %></span></p>
   <p><strong>Is done:</strong> <span><%= task.is_done? ? '&#10004'.html_safe : '&#10008'.html_safe %></span></p>
   <p><strong>Category:</strong> <span><%= task.category != nil ? task.category.title : '&#10008'.html_safe %></span></p>
   <p><strong>Tags:</strong></p>
