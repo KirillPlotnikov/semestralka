@@ -1,22 +1,35 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<% content_for :title do  %>
+  Categories
+<% end %>
 
-<table>
+<% content_for :head_content do  %>
+  <%= stylesheet_link_tag 'categories/index.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<h1 align="center">Categories</h1>
+<div class="categories-menu">
+  <%= link_to 'New Category', new_category_path %>
+</div>
+
+<% if @categories.size != 0 %>
+<div class="table-responsive">
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Color</th>
-      <th>Has tasks</th>
-      <th colspan="3"></th>
+      <th scope="col">Title</th>
+      <th scope="col">Color</th>
+      <th scope="col">Color preview</th>
+      <th scope="col">Has tasks</th>
+      <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= category.title %></td>
+        <td scope="row"><%= category.title %></td>
         <td><%= category.color %></td>
+        <td><div class="color-div" style="background-color: <%= category.color %>"></div></td>
         <td><%= category.tasks_count %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
@@ -25,7 +38,10 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
+    <% else %>
+      <h3 align="center">No categories yet...</h3>
+  <% end %>
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+

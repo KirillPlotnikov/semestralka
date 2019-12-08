@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :set_categories_and_tags, only: [:index, :completed, :pending, :by_category, :by_tags]
+  before_action :set_categories_and_tags, only: [:index, :completed, :pending, :by_category, :by_tags, :search]
 
   # GET /tasks
   # GET /tasks.json
@@ -113,6 +113,11 @@ class TasksController < ApplicationController
       end
 
     end
+    render 'index'
+  end
+
+  def search
+    @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).where('title LIKE ? OR note LIKE ?', "%#{params[:keyword]}%", "%#{params[:keyword]}%").all
     render 'index'
   end
 

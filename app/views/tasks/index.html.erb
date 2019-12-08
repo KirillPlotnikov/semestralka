@@ -17,6 +17,17 @@
   <%= link_to 'Completed Tasks', completed_tasks_path %>
   <%= link_to 'Group by category', request.path + "?" + {:group => '1'}.to_query  %>
   <a href="#" id="filter-div-trigger">Filter<i class='down'></i></a>
+  <form class="form-inline" id="search-form">
+    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">&#128269;</div>
+      </div>
+      <input type="text" class="form-control" id="search-input" placeholder="Search for title or note">
+    </div>
+    <button type="submit" type="search-button" class="btn btn-primary mb-2">Submit</button>
+  </form>
+
 </div>
 
 <div class="filtering-div">
@@ -29,28 +40,32 @@
   </select>
 
   <p>By Tag:</p>
-  <div class="tags-selection">
-  <% @tags.each do |tag| %>
+  <div class="tags-selection">>
+      <% @tags.each do |tag| %>
     <input id="" type="checkbox" value="<%= tag.id %>"><label class=""><%= tag.title %></label>
-  <% end %>
+    <% end %>
   </div>
   <div>
     <button class="btn btn-primary" id="apply-button">Apply</button>
   </div>
 </div>
 
-  <% if @tasks.is_a?(Hash) && @tasks != nil %>
+  <% if @tasks.is_a?(Hash) && @tasks.size != 0 %>
     <% @tasks.each do |k,v| %>
     <h3 align="center"><%= k %></h3>
     <div class="container-tasks">
       <%= render v %>
     </div>
     <% end %>
-  <% else %>
+  <% elsif !@tasks.is_a?(Hash) && @tasks.size != 0%>
   <div class="container-tasks">
     <%= render @tasks %>
   </div>
+  <% else %>
+    <h3 class="no-tasks" align="center">No tasks yet...</h3>
   <% end %>
+
+
 
 
 

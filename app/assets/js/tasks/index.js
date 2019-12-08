@@ -29,5 +29,16 @@ $(document).on('turbolinks:load', function(){
             window.location.replace("http://localhost:3000/tasks/by-category/" + selectedCountry + "/by-tags/" + tags_ids.join("+"));
         }
     });
+
+    $('body').on('submit', '#search-form' , function(e){
+
+        e.preventDefault();
+        let keyword = "";
+
+        keyword = $("#search-input").val();
+
+        window.location.replace("http://localhost:3000/tasks/search/" + keyword);
+
+    });
 });
 
