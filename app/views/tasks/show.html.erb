@@ -1,4 +1,14 @@
+<% content_for :title do  %>
+  <%= @task.title %>
+<% end %>
+
+<% content_for :head_content do  %>
+  <%= stylesheet_link_tag 'tasks/show.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
+
+<h1 align="center">Task details</h1>
 
 <p>
   <strong>Deadline at:</strong>

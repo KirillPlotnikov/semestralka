@@ -1,0 +1,34 @@
+<div style="border-color: <%= task.is_done? ? 'green' : 'red' %>" class="task-div">
+  <% if task.note != ''  %>
+  <div class="note">&#9745;
+    <span class="tooltiptext" style="top: 10px">Has a note</span>
+  </div>
+  <% else %>
+    <div class="note">&#9746;
+      <span class="tooltiptext">Doesn't have a note</span>
+    </div>
+  <% end %>
+  <p><strong>Title:</strong> <span><%= task.title %></span></p>
+  <p><strong>Deadline at:</strong> <span><%= task.deadline_at != nil ? task.deadline_at : "No deadline" %></span></p>
+  <p><strong>Is done:</strong> <span><%= task.is_done? ? '&#10004'.html_safe : '&#10008'.html_safe %></span></p>
+  <p><strong>Category:</strong> <span><%= task.category != nil ? task.category.title : '&#10008'.html_safe %></span></p>
+  <p><strong>Tags:</strong></p>
+  <% if task.tags.size != 0 %>
+    <p>
+    <% task.tags.each_with_index do |tag, index| %>
+      <% if index != (task.tags.size - 1) %>
+        <%= tag.title + ", " %>
+      <% else %>
+        <%= tag.title %>
+      <% end %>
+    <% end %>
+    </p>
+  <% else %>
+    <p>&#10008;</p>
+  <% end %>
+  <div class="task-links">
+  <%= link_to 'Show', task %>
+  <%= link_to 'Edit', edit_task_path(task) %>
+  <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

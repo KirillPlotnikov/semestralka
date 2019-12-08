@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
     end
-    console
+
   end
 
   # GET /tasks/1
