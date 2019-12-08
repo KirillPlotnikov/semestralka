@@ -6,7 +6,12 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     # @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).sort_by {|task| task.deadline_at != nil ? [task.deadline_at, task.created_at] : [100.years.after, task.created_at]}
-    @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    if params[:group] == '1'
+      @tasks = current_user.tasks.includes(:category).joins(:category).group_by{|t| t.category}
+    else
+      @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    end
+    console
   end
 
   # GET /tasks/1
@@ -59,6 +64,16 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def completed
+    @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).completed.order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    render 'index'
+  end
+
+  def pending
+    @tasks = current_user.tasks.includes(:category, :tag_associations, :tags).pending.order('CASE WHEN deadline_at IS NULL THEN 1 ELSE 0 END, deadline_at')
+    render 'index'
   end
 
   private

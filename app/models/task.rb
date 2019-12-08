@@ -4,5 +4,6 @@ class Task < ApplicationRecord
   has_many :tag_associations, dependent: :destroy
   has_many :tags, through: :tag_associations
   validates :title, presence: true, length: {minimum: 2}
-
+  scope :completed, -> {where(is_done: true)}
+  scope :pending, -> {where(is_done:false)}
 end

@@ -7,7 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Color</th>
-      <th>User</th>
+      <th>Has tasks</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,6 +17,7 @@
       <tr>
         <td><%= category.title %></td>
         <td><%= category.color %></td>
+        <td><%= category.tasks_count %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>

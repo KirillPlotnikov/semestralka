@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   get '/account', to: 'account#index'
 
 
-  resources :tasks
+  resources :tasks do
+    collection do
+      get 'completed'
+      get 'pending'
+    end
+  end
 
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
